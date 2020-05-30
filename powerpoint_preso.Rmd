@@ -1,0 +1,58 @@
+---
+title: 'Next Project for American Motors'
+subtitle: '5/30/2020'
+author: 'Joshua Han'
+output: ioslides_presentation
+#always_allow_html: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+data('mtcars')
+```
+
+## Business Case
+
+We are currently at a crossroads (no pun intended). We at American Motors are in the process of thinking through what type of vehicle we should be investing in. Given our current set of consumers - those who care about the environment and mainly care about practicality, MPG is the largest KPI we wanted to gauge success. Better MPG is better for the environment, which displays a deep care for the environment to our consumers. We want to show we are mindful of the consumer's desires.
+
+## Developing our Model
+
+We have obtained some data that considers MPG data, # of cylinders, weight (in 1,000 lbs), HP, etc. We developed a linear regression model to create a predictive model to help us at American Motors to figure out how to make the most fuel efficient vehicle.
+
+## Correlation: MPG and Cyl
+
+I want to take some time to discuss some of the correlations we see between the different variables and MPG. In general, we will see a negative correlation between MPG and the variables in our model.
+
+```{r, warning=F}
+suppressPackageStartupMessages({library(plotly)})
+library(plotly)
+plot_ly(mtcars, x = ~cyl, y = ~mpg,color = ~as.factor(am), mode = "markers", type = 'scatter')
+```
+
+
+## Correlation MPG and HP
+
+You can see here a negative correlation between MPG and HP as well.
+
+```{r plot2, warning=F}
+suppressPackageStartupMessages({library(plotly)})
+library(plotly)
+plot_ly(mtcars, x = ~hp, y = ~mpg,color = ~as.factor(am), mode = "markers", type = 'scatter')
+```
+
+## Correlation MPG and Weight (in 1,000 lbs)
+
+You can see here a negative correlation between MPG and weight.
+
+```{r plot3, warning=F}
+suppressPackageStartupMessages({library(plotly)})
+library(plotly)
+plot_ly(mtcars, x = ~wt, y = ~mpg,color = ~as.factor(am), mode = "markers", type = 'scatter')
+```
+
+
+## Conclusions and Remarks
+The variables included in our model are transmission, number of cylinders, amount of hp, and weight. As we consider the specs of what kind of car we should be building, let us consider the negative correlation between these variables and MPG. That said, if we want to maximize MPG, we should be striving to limit our variables. The less weight, the less amount of cylinders, less amount of HP, the more MPG we will gain. Here is a interactive graphic the team can use to help decide, which models based upon the specs we want to see, the MPG of the prototype.
+
+## Thank you
